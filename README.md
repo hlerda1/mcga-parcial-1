@@ -2,6 +2,6 @@
 
 The functions will be available through api-rest calls that will be able to read, add, modify or delete data from the database.
 
-Node.JS development
-Connection and web infraestructure using Express.JS 
-Databse system through MongoDB Atlas
+Node.JS development.
+Connection and web infraestructure using Express.JS.
+Databse system through MongoDB Atlas.
