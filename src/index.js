@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express')
 const mongoose = require('mongoose')
 
@@ -11,8 +12,8 @@ app.use(router);
 mongoose.connect(process.env.DATABASE_URL)
   .then(() => {
     console.log("🟢 DB Connected");
-    app.listen(  { port: process.env.PORT } , () => {
-      console.log(`🚗 Server running on port 4000`);
+    app.listen(  { port: process.env.PORTDB } , () => {
+      console.log(`🚗 Server running on port 6000`);
     });
   })
   .catch((err) => {
@@ -21,6 +22,6 @@ mongoose.connect(process.env.DATABASE_URL)
   });
 
 
-app.listen(3000, () => {
-    console.log(`Example app listening on port 3000`)
+app.listen({ port: process.env.PORTAPP }, () => {
+    console.log(`Example app listening on port 5000`)
   });
