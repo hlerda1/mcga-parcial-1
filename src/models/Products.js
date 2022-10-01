@@ -25,12 +25,4 @@ const productsSchema = new Schema({
     },
 })
 
-// const productsSchema = new Schema({
-//     id: String,
-//     name: String,
-//     price: Number,
-//     stock: Number,
-//     description:String,
-// })
-
 module.exports = mongoose.model("Products", productsSchema);
