@@ -7,7 +7,14 @@ const getStatus = (req, res) => {
 }
 
 const getAll = (req, res) => {
-    Products.find({ isDeleted: false })
+    // Products.find({ isDeleted: false })
+    Products.find()
+      .then((data) => res.json({ data }))
+      .catch((err) => res.status(500).json({ msg: `Error: ${err}` }));
+  }
+
+const getProduct = (req, res) => {
+    Products.find({ id: req.params.id })
       .then((data) => res.json({ data }))
       .catch((err) => res.status(500).json({ msg: `Error: ${err}` }));
   }
@@ -31,9 +38,19 @@ const create = (req, res) => {
         .catch((err) => res.status(500).json({ msg: `Error: ${err}` }));
 };
 
+const updateProd = (req, res) => {
+  Products.updateOne({id: req.params.id},{
+    $set:{name: req.body.name, price: req.body.price, stock: req.body.stock, description: req.body.description}
+  })
+      .then((data) => res.json({ msg: "Product updated: ", data }))
+      .catch((err) => res.status(500).json({ msg: `Error: ${err}` }));
+};
+
 module.exports = {
     getStatus,
     getAll,
     create,
     deleteProd,
+    updateProd,
+    getProduct,
   };
