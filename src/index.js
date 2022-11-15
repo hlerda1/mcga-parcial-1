@@ -22,6 +22,6 @@ mongoose.connect(process.env.DATABASE_URL)
   });
 
 
-app.listen({ port: process.env.PORTAPP }, () => {
-    console.log(`Example app listening on port 5000`)
-  });
+// app.listen({ port: process.env.PORTAPP }, () => {
+//     console.log(`Example app listening on port 5000`)
+//   });
